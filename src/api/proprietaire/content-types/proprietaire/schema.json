@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "proprietaires",
+  "info": {
+    "singularName": "proprietaire",
+    "pluralName": "proprietaires",
+    "displayName": "proprietaire",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sitename": {
+      "type": "string"
+    },
+    "urlsite": {
+      "type": "string"
+    },
+    "utilisateur": {
+      "type": "string"
+    },
+    "join": {
+      "type": "text"
+    },
+    "infovalidation": {
+      "type": "boolean"
+    },
+    "validationAdmin": {
+      "type": "boolean"
+    },
+    "bullInfo": {
+      "type": "text"
+    },
+    "oeuvresvalide": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commentaires",
+  "info": {
+    "singularName": "commentaire",
+    "pluralName": "commentaires",
+    "displayName": "commentaire"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "commentaire": {
+      "type": "text"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "commentaires"
+    },
+    "oeuvres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::oeuvre.oeuvre",
+      "inversedBy": "commentaires"
+    }
+  }
+}

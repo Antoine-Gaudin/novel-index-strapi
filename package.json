@@ -32,5 +32,9 @@
   },
   "strapi": {
     "uuid": "7d9eac47-0392-49aa-96bf-719485e04008"
-  }
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

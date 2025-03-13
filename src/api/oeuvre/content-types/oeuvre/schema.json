@@ -1,0 +1,114 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oeuvres",
+  "info": {
+    "singularName": "oeuvre",
+    "pluralName": "oeuvres",
+    "displayName": "oeuvre",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "titrealt": {
+      "type": "text"
+    },
+    "auteur": {
+      "type": "string"
+    },
+    "traduction": {
+      "type": "text"
+    },
+    "synopsis": {
+      "type": "text"
+    },
+    "annee": {
+      "type": "biginteger"
+    },
+    "etat": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "categorie": {
+      "type": "string"
+    },
+    "licence": {
+      "type": "boolean"
+    },
+    "langage": {
+      "type": "string"
+    },
+    "couverture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::team.team",
+      "mappedBy": "oeuvres"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "oeuvres"
+    },
+    "chapitres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::chapitre.chapitre",
+      "mappedBy": "oeuvres"
+    },
+    "genres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::genre.genre",
+      "mappedBy": "oeuvres"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "oeuvres"
+    },
+    "nomdomaine": {
+      "type": "string"
+    },
+    "editions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::edition.edition",
+      "mappedBy": "oeuvres"
+    },
+    "achatlivres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::achatlivre.achatlivre",
+      "mappedBy": "oeuvres"
+    },
+    "commentaires": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::commentaire.commentaire",
+      "mappedBy": "oeuvres"
+    },
+    "nameurl": {
+      "type": "string"
+    }
+  }
+}
