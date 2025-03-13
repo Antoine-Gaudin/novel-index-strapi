@@ -25,12 +25,12 @@ export default ({ env }) => {
     postgres: {
       connection: {
         connectionString: env('DATABASE_URL'),
-        host: env('DATABASE_HOST', 'localhost'),
+        host: env('DATABASE_HOST', 'dpg-cv9185qn91rc73d5jme0-a'),
         port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'strapi'),
-        user: env('DATABASE_USERNAME', 'strapi'),
-        password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) && {
+        database: env('DATABASE_NAME', 'novel_strapi_db'),
+        user: env('DATABASE_USERNAME', 'novel_strapi_db_user'),
+        password: env('DATABASE_PASSWORD', '4pHthcO7USDazpyK0NkUjnS0oTrVDiB9'),
+        ssl: env.bool('DATABASE_SSL', true) && {
           rejectUnauthorized: false,  // Ajout pour accepter les certificats auto-signés
         },
         schema: env('DATABASE_SCHEMA', 'public'),
