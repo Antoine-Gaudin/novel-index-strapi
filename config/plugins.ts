@@ -19,6 +19,7 @@ export default ({ env }) => ({
     config: {
       playgroundAlways: true,
       shadowCRUD: true,
+      introspection: true, // 👈 ajoute cette ligne !
     },
   },
 });
