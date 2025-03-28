@@ -15,7 +15,7 @@ export default ({ env }) => ({
   },
 
   graphql: {
-    enabled: true,
+    enabled: false,
     config: {
       playgroundAlways: true,
       shadowCRUD: true,

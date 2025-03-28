@@ -108,6 +108,12 @@
       "relation": "manyToMany",
       "target": "api::commentaire.commentaire",
       "mappedBy": "users_permissions_users"
+    },
+    "abonnements": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::abonnement.abonnement",
+      "mappedBy": "users_permissions_users"
     }
   }
 }

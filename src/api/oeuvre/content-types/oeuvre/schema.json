@@ -109,6 +109,12 @@
     },
     "nameurl": {
       "type": "string"
+    },
+    "abonnements": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::abonnement.abonnement",
+      "mappedBy": "oeuvres"
     }
   }
 }
