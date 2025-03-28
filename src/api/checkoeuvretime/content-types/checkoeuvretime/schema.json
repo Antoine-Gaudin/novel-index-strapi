@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "checkoeuvretimes",
+  "info": {
+    "singularName": "checkoeuvretime",
+    "pluralName": "checkoeuvretimes",
+    "displayName": "checkoeuvretime"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lastChecked": {
+      "type": "datetime"
+    },
+    "notification": {
+      "type": "boolean",
+      "default": false
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "checkoeuvretimes"
+    },
+    "oeuvres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::oeuvre.oeuvre",
+      "inversedBy": "checkoeuvretimes"
+    }
+  }
+}

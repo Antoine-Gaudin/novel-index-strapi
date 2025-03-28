@@ -471,6 +471,42 @@ export interface ApiChapitreChapitre extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCheckoeuvretimeCheckoeuvretime
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'checkoeuvretimes';
+  info: {
+    displayName: 'checkoeuvretime';
+    pluralName: 'checkoeuvretimes';
+    singularName: 'checkoeuvretime';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    archived: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    lastChecked: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::checkoeuvretime.checkoeuvretime'
+    > &
+      Schema.Attribute.Private;
+    notification: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    oeuvres: Schema.Attribute.Relation<'manyToMany', 'api::oeuvre.oeuvre'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    users_permissions_users: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
 export interface ApiCommentaireCommentaire extends Struct.CollectionTypeSchema {
   collectionName: 'commentaires';
   info: {
@@ -588,6 +624,10 @@ export interface ApiOeuvreOeuvre extends Struct.CollectionTypeSchema {
     chapitres: Schema.Attribute.Relation<
       'manyToMany',
       'api::chapitre.chapitre'
+    >;
+    checkoeuvretimes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::checkoeuvretime.checkoeuvretime'
     >;
     commentaires: Schema.Attribute.Relation<
       'manyToMany',
@@ -1228,6 +1268,10 @@ export interface PluginUsersPermissionsUser
       'manyToMany',
       'api::chapitre.chapitre'
     >;
+    checkoeuvretimes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::checkoeuvretime.checkoeuvretime'
+    >;
     commentaires: Schema.Attribute.Relation<
       'manyToMany',
       'api::commentaire.commentaire'
@@ -1290,6 +1334,7 @@ declare module '@strapi/strapi' {
       'api::achatlivre.achatlivre': ApiAchatlivreAchatlivre;
       'api::administration.administration': ApiAdministrationAdministration;
       'api::chapitre.chapitre': ApiChapitreChapitre;
+      'api::checkoeuvretime.checkoeuvretime': ApiCheckoeuvretimeCheckoeuvretime;
       'api::commentaire.commentaire': ApiCommentaireCommentaire;
       'api::edition.edition': ApiEditionEdition;
       'api::genre.genre': ApiGenreGenre;

@@ -110,10 +110,10 @@
     "nameurl": {
       "type": "string"
     },
-    "abonnements": {
+    "checkoeuvretimes": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::abonnement.abonnement",
+      "target": "api::checkoeuvretime.checkoeuvretime",
       "mappedBy": "oeuvres"
     }
   }
