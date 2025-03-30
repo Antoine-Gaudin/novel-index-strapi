@@ -4,7 +4,8 @@
   "info": {
     "singularName": "nameoeuvrelist",
     "pluralName": "nameoeuvrelists",
-    "displayName": "nameoeuvrelist"
+    "displayName": "nameoeuvrelist",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,10 +21,11 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "nameoeuvrelists"
     },
-    "oeuvre": {
+    "oeuvres": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::oeuvre.oeuvre"
+      "relation": "manyToMany",
+      "target": "api::oeuvre.oeuvre",
+      "inversedBy": "nameoeuvrelists"
     },
     "couleur": {
       "type": "string"
