@@ -114,6 +114,12 @@
       "relation": "manyToMany",
       "target": "api::checkoeuvretime.checkoeuvretime",
       "mappedBy": "users_permissions_users"
+    },
+    "nameoeuvrelists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::nameoeuvrelist.nameoeuvrelist",
+      "mappedBy": "users_permissions_users"
     }
   }
 }

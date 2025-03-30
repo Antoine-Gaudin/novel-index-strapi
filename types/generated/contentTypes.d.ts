@@ -602,6 +602,41 @@ export interface ApiGenreGenre extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNameoeuvrelistNameoeuvrelist
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'nameoeuvrelists';
+  info: {
+    displayName: 'nameoeuvrelist';
+    pluralName: 'nameoeuvrelists';
+    singularName: 'nameoeuvrelist';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    couleur: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nameoeuvrelist.nameoeuvrelist'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    oeuvre: Schema.Attribute.Relation<'oneToOne', 'api::oeuvre.oeuvre'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    users_permissions_users: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
 export interface ApiOeuvreOeuvre extends Struct.CollectionTypeSchema {
   collectionName: 'oeuvres';
   info: {
@@ -1293,6 +1328,10 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    nameoeuvrelists: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::nameoeuvrelist.nameoeuvrelist'
+    >;
     oeuvres: Schema.Attribute.Relation<'manyToMany', 'api::oeuvre.oeuvre'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
@@ -1338,6 +1377,7 @@ declare module '@strapi/strapi' {
       'api::commentaire.commentaire': ApiCommentaireCommentaire;
       'api::edition.edition': ApiEditionEdition;
       'api::genre.genre': ApiGenreGenre;
+      'api::nameoeuvrelist.nameoeuvrelist': ApiNameoeuvrelistNameoeuvrelist;
       'api::oeuvre.oeuvre': ApiOeuvreOeuvre;
       'api::proprietaire.proprietaire': ApiProprietaireProprietaire;
       'api::tag.tag': ApiTagTag;
