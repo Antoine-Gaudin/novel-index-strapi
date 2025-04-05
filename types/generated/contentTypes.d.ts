@@ -579,6 +579,7 @@ export interface ApiEditionEdition extends Struct.CollectionTypeSchema {
 export interface ApiGenreGenre extends Struct.CollectionTypeSchema {
   collectionName: 'genres';
   info: {
+    description: '';
     displayName: 'genre';
     pluralName: 'genres';
     singularName: 'genre';
@@ -590,6 +591,7 @@ export interface ApiGenreGenre extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::genre.genre'> &
       Schema.Attribute.Private;
@@ -606,6 +608,7 @@ export interface ApiNameoeuvrelistNameoeuvrelist
   extends Struct.CollectionTypeSchema {
   collectionName: 'nameoeuvrelists';
   info: {
+    description: '';
     displayName: 'nameoeuvrelist';
     pluralName: 'nameoeuvrelists';
     singularName: 'nameoeuvrelist';
@@ -625,7 +628,7 @@ export interface ApiNameoeuvrelistNameoeuvrelist
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    oeuvre: Schema.Attribute.Relation<'oneToOne', 'api::oeuvre.oeuvre'>;
+    oeuvres: Schema.Attribute.Relation<'manyToMany', 'api::oeuvre.oeuvre'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -685,6 +688,10 @@ export interface ApiOeuvreOeuvre extends Struct.CollectionTypeSchema {
       'api::oeuvre.oeuvre'
     > &
       Schema.Attribute.Private;
+    nameoeuvrelists: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::nameoeuvrelist.nameoeuvrelist'
+    >;
     nameurl: Schema.Attribute.String;
     nomdomaine: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -757,6 +764,7 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
       Schema.Attribute.Private;

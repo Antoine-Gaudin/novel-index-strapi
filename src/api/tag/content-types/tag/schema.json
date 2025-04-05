@@ -20,6 +20,9 @@
       "relation": "manyToMany",
       "target": "api::oeuvre.oeuvre",
       "inversedBy": "tags"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

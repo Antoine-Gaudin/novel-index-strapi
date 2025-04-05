@@ -4,7 +4,8 @@
   "info": {
     "singularName": "genre",
     "pluralName": "genres",
-    "displayName": "genre"
+    "displayName": "genre",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,9 @@
       "relation": "manyToMany",
       "target": "api::oeuvre.oeuvre",
       "inversedBy": "genres"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
